@@ -2,5 +2,6 @@
 #
 class octopus::service {
   service { 'OctopusDeploy Tentacle':
-     ensure => running  }
+    ensure => running
+  }
 }
