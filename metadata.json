@@ -1,0 +1,26 @@
+{
+  "name":         "ifunky-octopus",
+  "version":      "1.0.0",
+  "author":       "Dan Gibbons",
+  "license":      "MIT",
+  "summary":      "Octopus Deploy tentacle installation",
+  "source":       "https://github.com/ifunky/ifunky-octopus",
+  "project_page": "https://github.com/ifunky/ifunky-octopus",
+  "issues_url":   "https://github.com/ifunky/ifunky-octopus/issues",
+  "operatingsystem_support": [
+      {
+        "operatingsystem": "Windows",
+        "operatingsystemrelease": [ "2008 R2", "2012", "2012 R2" ]
+      }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.12.0"
+    },
+    {
+      "name": "puppetlabs/powershell",
+      "version_requirement": ">= 2.0.3"
+    }
+  ]
+}
