@@ -1,8 +1,8 @@
 # This module manages Octopus Deploy tentacle installation and registration
 #
 # @example when declaring the class
-#   octopus { 'template':
-#     server_url  = "http://octopus-server.net"
+#   class { 'octopus':
+#     server_url  => "http://octopus-server.net"
 #   }
 #
 # @param ensure Required. Must be 'present' or 'absent
