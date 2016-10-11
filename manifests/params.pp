@@ -1,5 +1,5 @@
 # Default params
 #
 class octopus::params {
-  $tentacle_version = '3.5.4'
+  $tentacle_version = '3.4.12'
 }
