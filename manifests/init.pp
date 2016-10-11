@@ -1,8 +1,8 @@
 # This module manages Octopus Deploy tentacle installation and registration
 #
 # @example when declaring the class
-#   class { 'octopus':
-#     server_url  => "http://octopus-server.net"
+#   octopus { 'template':
+#     server_url  = "http://octopus-server.net"
 #   }
 #
 # @param ensure Required. Must be 'present' or 'absent
@@ -15,13 +15,15 @@ class octopus (
   $ensure           = undef
 ) inherits octopus::params {
 
+  $version = $tentacle_version
+
   if (downcase($::osfamily) != 'windows') {
     fail 'ERROR:: This module will only work on Windows.'
   }
 
   validate_re($server_url, ['^(http(?:s)?\:\/\/[a-zA-Z0-9]+(?:(?:\.|\-)[a-zA-Z0-9]+)+(?:\:\d+)?(?:\/[\w\-]+)*(?:\/?|\/\w+\.[a-zA-Z]{2,4}(?:\?[\w]+\=[\w\-]+)?)?(?:\&[\w]+\=[\w\-]+)*)$'], 'ERROR: You must enter a server url in a valid format i.e. http://octopus.net')
   validate_re($ensure,['^(present|absent)$'], 'ERROR: You must specify present or absent')
-  validate_re($tentacle_version,['^(\d+\.)?(\d+\.)?(\*|\d+)$'], 'ERROR: You must specify a numeric value')
+  validate_re($version,['^(\d+\.)?(\d+\.)?(\*|\d+)$'], 'ERROR: You must specify a numeric value')
 
   class { '::octopus::install': } ->
   class { '::octopus::config': } ~>
